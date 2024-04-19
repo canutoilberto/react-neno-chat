@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
 
 const Chat = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
+
+  const endRef = useRef(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   const handleEmoji = (e) => {
     setText((prev) => prev + e.emoji);
@@ -27,7 +33,76 @@ const Chat = () => {
           <img src="./info.png" alt="" />
         </div>
       </div>
-      <div className="center"></div>
+      <div className="center">
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+              tempora maiores temporibus. Numquam fugit aperiam ullam quibusdam
+              cumque suscipit corrupti delectus?
+            </p>
+            <span>1 minuto atrás</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+              tempora maiores temporibus. Numquam fugit aperiam ullam quibusdam
+              cumque suscipit corrupti delectus?
+            </p>
+            <span>1 minuto atrás</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+              tempora maiores temporibus. Numquam fugit aperiam ullam quibusdam
+              cumque suscipit corrupti delectus?
+            </p>
+            <span>1 minuto atrás</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+              tempora maiores temporibus. Numquam fugit aperiam ullam quibusdam
+              cumque suscipit corrupti delectus?
+            </p>
+            <span>1 minuto atrás</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+              tempora maiores temporibus. Numquam fugit aperiam ullam quibusdam
+              cumque suscipit corrupti delectus?
+            </p>
+            <span>1 minuto atrás</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <img
+              src="https://images.unsplash.com/photo-1665241277288-cc866bea837c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+              tempora maiores temporibus. Numquam fugit aperiam ullam quibusdam
+              cumque suscipit corrupti delectus?
+            </p>
+            <span>1 minuto atrás</span>
+          </div>
+        </div>
+        <div ref={endRef}></div>
+      </div>
       <div className="bottom">
         <div className="icons">
           <img src="./img.png" alt="" />
